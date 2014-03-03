@@ -1,0 +1,80 @@
+
+<div class="header">
+    <div class="header-logo">
+        <img src="images/string-finger.jpg"/>
+
+        <a href="#login" class="login-form-btn-top"ng-controller="LoginController"ng-cloak ng-show-auth="['logout','error']">Login</a>
+        <a href="#" class="login-form-btn-top"ng-controller="LoginController"ng-cloak ng-show-auth="login" ng-click="logout()">Log Out</a>
+
+    </div>
+</div>
+
+
+<div ng-cloak ng-show-auth="['logout','error']">
+    <div class="container">
+        <div class="form-modal">
+            <div class="headertitle">
+                <div class="title">STRING
+                    <div class="subtitle">the ToDo app that replaces the string around your finger.</div>
+                </div>
+
+            </div>
+            <nav>
+                <div class="spacing"></div>
+
+                <div class="login-form">
+
+                    <div class="form-feedback"></div>
+                    <button ng-click='goNext("/login")' class="btn btn-primary" ng-click="href">Log In</button>
+
+                </div>
+                </div>
+
+                <div ng-show="err" class="alert alert-danger"><strong>{{err}}</strong></div>
+
+        </div>
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div ng-show-auth="login" class="bigContainer"ng-controller="MyController">
+    <div class="chatbox">
+            <div class="headertitle">
+                <div class="today">This is what I need to do today</div>
+                    <input class="todoInput"ng-model="newtodo" type="text"></input>
+                <button class="new" type="submit" ng-click="addtodo()">Add</button>
+
+            </div>
+
+
+        <div class="resultsbox"></div>
+            <div class="box">
+                    <ul class="results" ng-repeat="(id, Todo) in list">
+                       <button class="delete">done</button>{{Todo.body}}
+                    </ul>
+
+            </div>
+    </div>
+
+
+
+</div>
+

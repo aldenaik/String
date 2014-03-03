@@ -1,0 +1,71 @@
+<div ng-cloak class="row">
+    <div class="col-md-12">
+        <div class="header">
+            <div class="header-logo">
+                <img src="images/string-finger.jpg"/>
+
+                <a href="#login" ng-click="createMode = false" class="login-form-btn-top">Login</a>
+
+                <a ng-click="createMode = true" class="signup-form-btn-top">Sign Up</a>
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="form-modal">
+                <div class="headertitle">
+                    <div class="title">STRING
+                        <div class="subtitle">the ToDo app that replaces the string around your finger.</div>
+                    </div>
+
+                </div>
+                <nav>
+                    <a class="signup-form-btn"ng-click="createMode = true">Sign Up</a>
+
+                    <a href="#/login"ng-click="createMode = false" class="login-form-btn">Login</a>
+
+
+                    <!--<button class="btn btn-default" ng-click="createMode = true" ng-hide="createMode">Register</button>-->
+
+
+
+
+
+                <hr>
+
+                <div class="login-form">
+                    <form>
+                        <div class="form-row">
+                            <label>email</label>
+                            <input class="form-control" type="text" ng-model="email" placeholder="IamAnoldman@whatever.com" />
+                        </div>
+                        <div class="form-row">
+                            <label>password</label>
+                            <input class="form-control" type="password" ng-model="pass" />
+                        </div>
+                        <div class="form-row" ng-show="createMode">
+                            <label>confirm pass</label>
+                            <input class="form-control" type="password" ng-model="confirm" />
+                        </div>
+                    </form>
+                    <div class="form-feedback"></div>
+                        <button ng-hide="createMode"class="btn btn-primary" ng-click="loginPassword()">Log In
+                   <!--<a/>-->
+                        </button>
+                    <button ng-show="createMode" class="btn btn-success" ng-click="createAccount()" href="#/home">Create Account</button>
+
+
+                    <!--<a ng-href="#/home">go in</a>-->
+
+                </div>
+
+                <div ng-show="err" class="alert alert-danger"><strong>{{err}}</strong></div>
+
+            </div>
+
+        </div>
+
