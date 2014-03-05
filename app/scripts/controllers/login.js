@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('stringApp')
-    .controller('LoginController', function($scope, simpleLogin, $location) {
+    .controller('LoginController', function($scope, simpleLogin, $location, $rootScope) {
         $scope.pass = null;
         $scope.err = null;
         $scope.email = null;
@@ -17,6 +17,9 @@ angular.module('stringApp')
             }
             else {
                 simpleLogin.loginPassword($scope.email, $scope.pass, function(err, user) {
+                    $scope.user = user;
+                    console.log(user);
+                    $rootScope=user;
                     $scope.err = err? err + '' : null;
                     if( !err && cb ) {
                         cb(user);
@@ -57,8 +60,8 @@ angular.module('stringApp')
                 });
             }
         };
-
     });
+
 
 
 

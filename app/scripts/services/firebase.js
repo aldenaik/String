@@ -88,7 +88,7 @@ function MyController($scope, $firebase) {
         // AngularFire $add method
         $scope.list.$add({
             body : $scope.newtodo,
-//            uid : user.uid
+            uid : user.uid
         });
 //        $scope.list.$add(user.uid);
 
