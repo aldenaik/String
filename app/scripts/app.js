@@ -15,13 +15,24 @@ angular.module('stringApp', [
       .when('/', {
 
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+//            resolve: {
+//                user: function (userService) {
+//                    return userService.get();
+//                    console.log(user);
+//                },
+//                loggedInUser: function (userService) {
+//                    return userService.getCurrentUser();
+//                    console.log(loggedInUser);
+//
+//                }
+//            }
 
     })
       .when('/login', {
 //        authRequfalse false, // if true, must log in before viewing this page
         templateUrl: 'views/login.html',
-        controller: 'LoginController'
+        controller: 'MainCtrl'
       })
       .otherwise({
         redirectTo: '/'

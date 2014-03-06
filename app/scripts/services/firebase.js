@@ -1,20 +1,6 @@
 'use strict';
 
 angular.module('angularfire.firebase', ['firebase'])
-//function addTodo($scope, $firebase) {
-//    var list = new Firebase("https://string.firebaseio.com/list");
-//    $scope.list = $firebase(listRef);
-//    $scope.addlist = function() {
-//        // AngularFire $add method
-//        $scope.list.$add($scope.newTodo);
-//        //or add a new person manually
-//        listRef.update({id: '11111', item: 'hello'});
-//
-//        $scope.newlist = "";
-//    }
-//}
-//
-
 
 // A quick wrapper to abstract creating Firebase references
   .factory('firebaseRef', function (Firebase, FBURL) {
@@ -79,25 +65,3 @@ angular.module('angularfire.firebase', ['firebase'])
 
 
     });
-
-
-function MyController($scope, $firebase) {
-    var listRef = new Firebase('https://string.firebaseio.com/list');
-    $scope.list = $firebase(listRef);
-    $scope.addtodo = function() {
-        // AngularFire $add method
-        $scope.list.$add({
-            body : $scope.newtodo,
-            uid : user.uid
-        });
-//        $scope.list.$add(user.uid);
-
-        //or add a new person manually
-//        peopleRef.update({name: 'Alex', age: 35});
-
-        $scope.newtodo = '';
-    };
-}
-//
-//people = list
-//Person  = todo

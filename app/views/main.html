@@ -3,8 +3,8 @@
     <div class="header-logo">
         <img src="images/string-finger.jpg"/>
 
-        <a href="#login" class="login-form-btn-top"ng-controller="LoginController"ng-cloak ng-show-auth="['logout','error']">Login</a>
-        <a href="#" class="login-form-btn-top"ng-controller="LoginController"ng-cloak ng-show-auth="login" ng-click="logout()">Log Out</a>
+        <a href="#login" class="login-form-btn-top"ng-controller="MainCtrl"ng-cloak ng-show-auth="['logout','error']">Login</a>
+        <a href="#" class="login-form-btn-top"ng-controller="MainCtrl"ng-cloak ng-show-auth="login" ng-click="logout()">Log Out</a>
 
     </div>
 </div>
@@ -55,7 +55,7 @@
 
 
 
-<div ng-show-auth="login" class="bigContainer"ng-controller="MyController">
+<div ng-show-auth="login" class="bigContainer"ng-controller="MainCtrl">
     <div class="chatbox">
             <div class="headertitle">
                 <div class="today">This is what I need to do today</div>
