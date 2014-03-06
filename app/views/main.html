@@ -68,7 +68,9 @@
         <div class="resultsbox"></div>
             <div class="box">
                     <ul class="results" ng-repeat="(id, Todo) in list">
-                       <button class="delete">done</button>{{Todo.body}}
+                        <div class="todoBox">{{Todo.body}}</div>
+                        <button class="delete">complete</button>
+
                     </ul>
 
             </div>
