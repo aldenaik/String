@@ -89,10 +89,12 @@ angular.module('stringApp')
         };
 
 
-        ////////Push to List\\\\\\\\\\\\
+        ////////Push to List when click enter\\\\\\\\\\\\
 
-
-        $scope.addtodo = function() {
+        $scope.entertodo = function(e) {
+            if(e.keycode !== 13){
+                return;
+            }
             var listRef = new Firebase('https://string.firebaseio.com/users/'+$rootScope.user.id);
             $scope.list = $firebase(listRef);
             // AngularFire $add method
@@ -101,9 +103,56 @@ angular.module('stringApp')
             });
 
             $scope.newtodo = '';
+        };//end push to Lis
+
+
+
+
+        ////////Push to List when click button\\\\\\\\\\\\
+//        var i =0;       ///////////////////////  //////////////////
+
+        $scope.addtodo = function() {
+            var listRef = new Firebase('https://string.firebaseio.com/users/'+$rootScope.user.id);
+            $scope.list = $firebase(listRef);
+            // AngularFire $add method
+            $scope.list.$add({body:$scope.newtodo,
+//                id: i++     ///////////////////////////////////////
+            });
+
+            $scope.newtodo = '';
         };//end push to List
 
 
 
 
-    });
+
+      ////////////////////Delete Specific Item||||||||||||||||
+
+
+      //////////////selectItem///////////////////
+        $scope.currentItem;
+
+        $scope.selectItem= function(id){
+            console.log(id)
+            var itemRef = new Firebase('https://string.firebaseio.com/users/'+$rootScope.user.id+'/'+id);
+            $scope.currentItem = $firebase(itemRef);
+                $scope.replies = $scope.currentThread.$child('replies');
+        }//end Select Item
+
+
+
+        ////////////////////Delete Current Item||||||||||||||||
+
+        $scope.delete=function(id) {
+            var itemRef = new Firebase('https://string.firebaseio.com/users/'+$rootScope.user.id+'/'+id);
+             var itemToDelete = $firebase(itemRef);
+            itemToDelete.$remove();
+
+        }//end delete current item
+
+
+
+
+
+    });//END OF MAIN CONTROLLER
+

@@ -59,7 +59,7 @@
     <div class="chatbox">
             <div class="headertitle">
                 <div class="today">This is what I need to do today</div>
-                    <input class="todoInput"ng-model="newtodo" type="text"></input>
+                    <input class="todoInput"ng-model="newtodo" type="text" ng-keydown="entertodo($event)"></input>
                 <button class="new" type="submit" ng-click="addtodo()">Add</button>
 
             </div>
@@ -67,13 +67,16 @@
 
         <div class="resultsbox"></div>
             <div class="box">
-                    <ul class="results" ng-repeat="(id, Todo) in list">
+                    <ul class="results" ng-click="selectItem(id)" ng-repeat="(id, Todo) in list">
                         <div class="todoBox">{{Todo.body}}</div>
-                        <button class="delete">complete</button>
+                        <button class="delete"ng-click="delete(id)">complete</button>
 
                     </ul>
+                <!--<button class="delete"ng-click="delete()">complete</button>-->
+                <font color="black"<div>{{currentItem.body}}</div></font>
 
             </div>
+
     </div>
 
 
